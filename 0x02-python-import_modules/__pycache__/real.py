@@ -1,2 +1,3 @@
 from test import a
-print(a)
+print(type(f"{a}"))
+print(type(a))
