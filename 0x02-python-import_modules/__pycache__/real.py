@@ -1,3 +1,2 @@
-from test import a
-print(type(f"{a}"))
-print(type(a))
+#!/usr/bin/python3
+import my_print
