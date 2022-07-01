@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-if __name__ == "__main__"
 import sys
+if __name__ == "__main__"
 lists = (sys.argv)
 b = 1
 if len(lists) > 2:
