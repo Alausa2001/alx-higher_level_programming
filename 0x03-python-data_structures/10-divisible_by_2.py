@@ -6,5 +6,4 @@ def divisible_by_2(my_list=[]):
     else:
         for a in my_list:
             new.append(not(bool(a % 10)))
-        return (new)
-            
+        return (new)            
