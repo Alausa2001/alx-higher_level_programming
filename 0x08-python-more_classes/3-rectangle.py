@@ -23,7 +23,7 @@ class Rectangle:
                     result = result + ("#" * self.__width)
                     if i != self.__height - 1:
                         result = result + "\n"
-                return (result)
+            return (result)
 
     @property
     def width(self):
