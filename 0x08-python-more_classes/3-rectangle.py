@@ -17,6 +17,8 @@ class Rectangle:
 
     def __str__(self):
         """return a printable form of the rectangle"""
+        if self.__width == 0 or self.__height == 0:
+            return("")
         result = ""
         if self.__height > 0 or self.__width > 0:
             for i in range(self.__height):
