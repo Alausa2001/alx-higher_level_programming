@@ -15,15 +15,15 @@ class Rectangle:
         self.__width = width
         self.__height = height
 
-        def __str__(self):
-            """return a printable form of the rectangle"""
-            result = ""
-            if self.__height > 0 or self.__width > 0:
-                for i in range(self.__height):
-                    result = result + ("#" * self.__width)
-                    if i != self.__height - 1:
-                        result = result + "\n"
-            return (result)
+    def __str__(self):
+        """return a printable form of the rectangle"""
+        result = ""
+        if self.__height > 0 or self.__width > 0:
+            for i in range(self.__height):
+                result = result + ("#" * self.__width)
+                if i != self.__height - 1:
+                    result = result + "\n"
+        return (result)
 
     @property
     def width(self):
