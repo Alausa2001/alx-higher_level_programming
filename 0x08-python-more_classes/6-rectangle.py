@@ -16,7 +16,7 @@ class Rectangle:
             varible names"""
         self.__width = width
         self.__height = height
-        number_of_instances += 1
+        Rectangle.number_of_instances += 1
 
     def __str__(self):
         """return a printable form of the rectangle"""
@@ -33,7 +33,7 @@ class Rectangle:
     def __del__(self):
         """deletes an instance"""
         print("Bye rectangle...")
-        number_of_instances -= 1
+        Rectangle.number_of_instances -= 1
 
     def __repr__(self):
         """returns a string rep that can be evaluated
