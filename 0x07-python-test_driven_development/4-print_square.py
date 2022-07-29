@@ -7,15 +7,13 @@ def print_square(size):
     and print a square
     """
     c = ""
-    if type(size) is float and size < 0:
-        raise TypeError("size must be an integer")
-    if type(size) is int and size < 0:
-        raise ValueError("size must be >= 0")
     if type(size) is not int:
         raise TypeError("size must be an integer")
-    if type(size) is int and size >= 0:
+    if size < 0:
+        raise ValueError("size must be >= 0")
+    if size >= 0:
         for i in range(size):
             c += '#' * size
-        if i != size - 1:
-            c += '\n'
+            if i != size - 1:
+                c += '\n'
         print(c)
