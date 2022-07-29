@@ -21,6 +21,10 @@ def example(b=[]):
         print(i)
         print()
 def whitespace(b=[]):
+    for i in range(len(b)):
+        if i < len(b) - 1:
+            print(b[i], end=', ')
+    print(b[len(b) - 1], end='')
     """only matching whitespace passes the test and the whitespace character
     doesn't matter
     >>> c = [1, 2, 3, 4] #doctest: +NORMALIZE_WHITESPACE
@@ -28,7 +32,3 @@ def whitespace(b=[]):
     1, 2, 
     3,                                                       4  
     """
-    for i in range(len(b)):
-        if i < len(b) - 1:
-            print(b[i], end=', ')
-    print(b[len(b) - 1], end='')
