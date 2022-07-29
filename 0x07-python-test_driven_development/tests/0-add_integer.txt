@@ -1,0 +1,21 @@
+==========================================
+This is the doctest for 0.0-add_integer.py
+==========================================
+``add_integer()`` function takes two argument
+and returns their sum. It can only take integers or
+floating point numbers as argument
+::
+	>>> add_integer = __import__("0-add_integer").add_integer
+	>>> add_integer(2, 3)
+	5
+
+This can also work for floating point numbers
+::
+	>>> add_integer(3, 2.0)
+	5
+
+It gives a typeerror if used with a non-integer or non-float
+::
+	>>> add_integer('a', 22)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
