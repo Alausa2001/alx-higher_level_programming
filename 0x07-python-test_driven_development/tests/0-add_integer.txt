@@ -19,3 +19,41 @@ It gives a typeerror if used with a non-integer or non-float
 	>>> add_integer('a', 22)
 	Traceback (most recent call last):
 	TypeError: a must be an integer
+
+This will work because the second arg has a default value(98)
+
+::
+
+	>>> add_integer(23)
+	121
+
+If either arguments are non-integer and non-floats, a TypeError is raised:
+
+::
+
+	>>> add_integer("r", 3)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+::
+
+	>>> add_integer(2, "hello")
+	Traceback (most recent call last):
+	TypeError: b must be an integer
+
+This function doesn't support infinity
+
+::
+
+	>>> add_integer(float('inf'))
+	Traceback (most recent call last):
+	OverflowError: cannot convert float infinity to integer
+
+
+NaN numbers
+
+::
+
+	>>> add_integer(float('nan'))
+	Traceback (most recent call last):
+	ValueError: cannot convert float NaN to integer
