@@ -15,7 +15,7 @@ def matrix_divided(matrix, div):
 of integers/float")
     size = None
     for leng in matrix:
-        if size == None:
+        if size is None:
             size = len(leng)
         elif size != len(leng):
             raise TypeError("Each row of the matrix must have the same size")
