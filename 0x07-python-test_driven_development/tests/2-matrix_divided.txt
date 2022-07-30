@@ -1,0 +1,33 @@
+=========================================
+This file contains the doctect for
+2-matrix.py
+========================================
+NOTES: the ``matrix_divided()`` takes two 
+argument(a matrix and a divisor) and performs division
+operation on each of the element in the matrix
+
+importing
+checking if matrix is a list
+	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+	>>> matrix_divided("wrong", 2)
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/float
+
+checking if for a matrix
+	>>> matrix_divided([[2, 3], [3, 4]], 1)
+	[[2.0, 3.0], [3.0, 4.0]]
+
+checking for zerodivision
+	>>> matrix_divided([[2, 3], [3, 4]], 0)
+	Traceback (most recent call last):
+	ZeroDivisionError: division by zero
+
+checking for division by non-integer
+	>>> matrix_divided([[2, 3], [3, 4]], "wrong")
+	Traceback (most recent call last):
+	TypeError: div must be a number
+
+checking if the each row has equal length
+	>>> matrix_divided([[2], [3, 4]], 1)
+	Traceback (most recent call last):
+	TypeError: Each row of the matrix must have the same size
