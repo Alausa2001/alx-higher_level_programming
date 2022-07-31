@@ -1,0 +1,42 @@
+matrix multiplication using NumPy
+===============================
+
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+>>> lazy_matrix_mul([])
+Traceback (most recent call last):
+TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+>>> lazy_matrix_mul(((1, 2, 3), (4, 5, 6)),((1, 2, 3), (4, 5, 6)))
+Traceback (most recent call last):
+ValueError: shapes (2,3) and (2,3) not aligned: 3 (dim 1) != 2 (dim 0)
+
+>>> lazy_matrix_mul([[1, 2, 3], [4, 5, 6]],((1, 2, 3), (4, 5, 6)))
+Traceback (most recent call last):
+ValueError: shapes (2,3) and (2,3) not aligned: 3 (dim 1) != 2 (dim 0)
+
+>>> lazy_matrix_mul([[1, 2, 3], [45, 2, 89]], [[1, 4], [67, 89]])
+Traceback (most recent call last):
+ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
+
+>>> lazy_matrix_mul([[1, 2, 3], [45, 56, 89], [12, 34, 56]], [[1, 3], [67, 87], [10, 100]])
+array([[  165,   477],
+       [ 4687, 13907],
+       [ 2850,  8594]])
+
+>>> lazy_matrix_mul([1, 2, 3], [[1], [2], [3]])
+array([14])
+
+>>> lazy_matrix_mul([[1], [2], [3]], [1, 2, 3])
+Traceback (most recent call last):
+ValueError: shapes (3,1) and (3,) not aligned: 1 (dim 1) != 3 (dim 0)
+
+>>> lazy_matrix_mul()
+Traceback (most recent call last):
+TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+>>> lazy_matrix_mul([[]], [])
+array([0.])
+
+>>> lazy_matrix_mul([], [])
+0.0
