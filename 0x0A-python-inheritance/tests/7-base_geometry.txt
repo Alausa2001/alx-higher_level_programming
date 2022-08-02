@@ -1,0 +1,57 @@
+
+Importing the class from the module:
+        >>> BG = __import__("7-base_geometry").BaseGeometry
+
+
+Checking for area failure:
+	 >>> b = BG()
+	 >>> b.area()
+	 Traceback (most recent call last):
+	 ...
+	 Exception: area() is not implemented
+
+Checking too many arguments for area:
+	 >>> b.area(1)
+	 Traceback (most recent call last):
+         ...
+	 TypeError: area() takes 1 positional argument but 2 were given
+
+Checking integer validator for passing integer:
+	 >>> b.integer_validator("integer", 1)
+
+Checking for integer == 0:
+	 >>> b.integer_validator("integer", 0)
+	 Traceback (most recent call last):
+         ...
+         ValueError: integer must be greater than 0
+
+Checking for integer < 0;
+	 >>> b.integer_validator("integer", -33)
+	 Traceback (most recent call last):
+         ...
+         ValueError: integer must be greater than 0
+
+Checking for non-integer types:
+	 >>> b.integer_validator("string", "hello")
+         Traceback (most recent call last):
+         ...
+         TypeError: string must be an integer
+	 >>> b.integer_validator("dict", {"key": "value"})
+         Traceback (most recent call last):
+         ...
+         TypeError: dict must be an integer
+	 >>> b.integer_validator("set", {"hello", "world"})
+         Traceback (most recent call last):
+	 TypeError: set must be an integer
+
+Checking for no arguments to integer_validator:
+	 >>> b.integer_validator()
+	 Traceback (most recent call last):
+         ...
+	 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Checking for only 1 argument to integer_validator:
+	 >>> b.integer_validator("integer")
+	 Traceback (most recent call last):
+         ...
+	 TypeError: integer_validator() missing 1 required positional argument: 'value'
