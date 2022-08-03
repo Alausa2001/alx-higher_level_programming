@@ -43,6 +43,20 @@ Checking for non-integer types:
 	 >>> b.integer_validator("set", {"hello", "world"})
          Traceback (most recent call last):
 	 TypeError: set must be an integer
+	 >>> b.integer_validator("tuple", (1, 2))
+	 Traceback (most recent call last):
+ 	 TypeError: tuple must be an integer
+	 >>> b.integer_validator("list", [[], []])
+	 Traceback (most recent call last):
+ 	 TypeError: list must be an integer
+
+	 >>> b.integer_validator("None", None)
+ 	 Traceback (most recent call last):
+	 TypeError: None must be an integer
+
+	 >>> b.integer_validator("bool", True)
+ 	 Traceback (most recent call last):
+  	 TypeError: bool must be an integer
 
 Checking for no arguments to integer_validator:
 	 >>> b.integer_validator()
