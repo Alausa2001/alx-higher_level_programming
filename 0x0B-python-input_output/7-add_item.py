@@ -9,6 +9,9 @@ save = __import__('5-save_to_json_file').save_to_json_file
 load = __import__('6-load_from_json_file').load_from_json_file
 
 filename = "add_item.json"
-output_list = []
+try:
+    output_list = load(filename)
+except:
+    output_list = []
 output_list.extend(sys.argv[1:])
 save(output_list, filename)
