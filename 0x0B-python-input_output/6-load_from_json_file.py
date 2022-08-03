@@ -12,4 +12,5 @@ def load_from_json_file(filename):
     args: filename=json file from which the object is
     created"""
     with open(filename, 'r', encoding='utf-8') as my_file:
-        js.load(my_file)
+        x = js.load(my_file)
+        return (x)
