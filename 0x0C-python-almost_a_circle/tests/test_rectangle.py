@@ -33,6 +33,7 @@ class TestRectangleClass(unittest.TestCase):
         self.assertTrue(issubclass(Rectangle, Base))
 
     def test_id_4(self):
+        
         """test for if id is access through the base class"""
         b1 = Base(1)
         b2 = Base(2)
@@ -51,3 +52,54 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(r1.id, 4)
         r2 = Rectangle(10, 2, 0, 0, 12)
         self.assertEqual(r2.id, 12)
+        
+        with self.assertRaises(TypeError) as e:
+            r = Rectangle("1", 2)
+        msg = "width must be an integer"
+        self.assertEqual(str(e.exception), msg)
+
+        with self.assertRaises(TypeError) as e:
+            r = Rectangle(1, "2")
+        msg = "height must be an integer"
+        self.assertEqual(str(e.exception), msg)
+
+        with self.assertRaises(TypeError) as e:
+            r = Rectangle(1, 2, "3")
+        msg = "x must be an integer"
+        self.assertEqual(str(e.exception), msg)
+
+        with self.assertRaises(TypeError) as e:
+            r = Rectangle(1, 2, 3, "4")
+        msg = "y must be an integer"
+        self.assertEqual(str(e.exception), msg)
+
+        with self.assertRaises(ValueError) as e:
+            r = Rectangle(-1, 2)
+        msg = "width must be > 0"
+        self.assertEqual(str(e.exception), msg)
+
+        with self.assertRaises(ValueError) as e:
+            r = Rectangle(1, -2)
+        msg = "height must be > 0"
+        self.assertEqual(str(e.exception), msg)
+
+        with self.assertRaises(ValueError) as e:
+            r = Rectangle(0, 2)
+        msg = "width must be > 0"
+        self.assertEqual(str(e.exception), msg)
+
+        with self.assertRaises(ValueError) as e:
+            r = Rectangle(1, 0)
+        msg = "height must be > 0"
+        self.assertEqual(str(e.exception), msg)
+
+        with self.assertRaises(ValueError) as e:
+            r = Rectangle(1, 2, -3)
+        msg = "x must be >= 0"
+        self.assertEqual(str(e.exception), msg)
+
+        with self.assertRaises(ValueError) as e:
+            r = Rectangle(1, 2, 3, -4)
+        msg = "y must be >= 0"
+        self.assertEqual(str(e.exception), msg)
+
