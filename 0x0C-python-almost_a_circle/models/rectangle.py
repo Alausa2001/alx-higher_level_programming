@@ -105,7 +105,7 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         """ public method def update(self, *args): that assigns
         an argument to each attribute:"""
-        if args:
+        if len(args):
             for count, arg in enumerate(args, 1):
                 if count == 1:
                     self.id = arg
