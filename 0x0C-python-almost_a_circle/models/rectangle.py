@@ -105,18 +105,18 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         """ public method def update(self, *args): that assigns
         an argument to each attribute:"""
-        if len(args):
+        if args:
             for count, arg in enumerate(args, 1):
                 if count == 1:
                     self.id = arg
                 elif count == 2:
-                    self.width = arg
+                    self.__width = arg
                 elif count == 3:
-                    self.height == arg
+                    self.__height = arg
                 elif count == 4:
-                    self.x = arg
+                    self.__x = arg
                 elif count == 5:
-                    self.y = arg
+                    self.__y = arg
         else:
             if 'id' in kwargs:
                 self.id = kwargs['id']
