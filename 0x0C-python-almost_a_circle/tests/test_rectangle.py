@@ -92,4 +92,9 @@ class TestRectangleClass(unittest.TestCase):
         result = '##\n##'
         r1 = Rectangle(2, 2)
         self.assertEqual(r1.display(), result)
+    def test_str(self):
+        """ test for ???"""
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        result = '[Rectangle] (12) 2/1 - 4/6'
+        self.assertEqual(r1.__str__(), result)
 

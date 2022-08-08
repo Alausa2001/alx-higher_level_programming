@@ -89,3 +89,11 @@ class Rectangle(Base):
                 result += '\n'
         print(result)
         return(result)
+    def __str__(self):
+        """print the ???"""
+        return ("[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(self.id,
+                                                                self.__x,
+                                                                self.__y,
+                                                                self.__width,
+                                                                self.__height))
+
