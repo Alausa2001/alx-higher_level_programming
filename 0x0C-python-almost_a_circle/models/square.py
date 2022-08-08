@@ -48,4 +48,4 @@ class Square(Rectangle):
             if 'x' in kwargs:
                 self.x = kwargs['x']
             if 'y' in kwargs:
-                self.y = kwargs['y']
+                self.y = kwarg['y']
