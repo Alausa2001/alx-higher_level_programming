@@ -20,3 +20,5 @@ if __name__ == "__main__":
     print()
     r1.update(x=1, height=2, y=3, width=4)
     print(r1)
+    r1_dictionary = r1.to_dictionary()
+    print(r1_dictionary)
