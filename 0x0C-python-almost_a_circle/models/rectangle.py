@@ -131,4 +131,4 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """return the dict representaion of class ``Rectangle``"""
-        return (Rectangle.__dict__)
+        return (self.__dict__)
