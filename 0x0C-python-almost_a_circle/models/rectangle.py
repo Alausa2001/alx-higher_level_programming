@@ -3,7 +3,7 @@
 inherits from class ``Base``"""
 
 
-from models.base import Base
+from base import Base
 
 
 class Rectangle(Base):
@@ -88,7 +88,7 @@ class Rectangle(Base):
         for i in range(self.__height):
             if self.__x > 0:
                 result += ' ' * self.__x
-                result += '#' * self.__width
+            result += '#' * self.__width
             if i < self.__height - 1:
                 result += '\n'
         print(result)
@@ -101,3 +101,30 @@ class Rectangle(Base):
                                                                 self.__y,
                                                                 self.__width,
                                                                 self.__height)
+
+    def update(self, *args, **kwargs):
+        """ public method def update(self, *args): that assigns
+        an argument to each attribute:"""
+        if args:
+            for count, arg in enumerate(args, 1):
+                if count == 1:
+                    self.id = arg
+                elif count == 2:
+                    self.__width = arg
+                elif count == 3:
+                    self.__height == arg
+                elif count == 4:
+                    self.__x = arg
+                elif count == 5:
+                    self.__y = arg
+        else:
+            if 'id' in kwargs:
+                self.id = kwargs['id']
+            if 'width' in kwargs:
+                self.__width = kwargs['width']
+            if 'height' in kwargs:
+                self.__height = kwargs['height']
+            if 'x' in kwargs:
+                self.__x = kwargs['x']
+            if 'y' in kwargs:
+                self.__y = kwargs['y']

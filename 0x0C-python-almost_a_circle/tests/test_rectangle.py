@@ -92,9 +92,30 @@ class TestRectangleClass(unittest.TestCase):
         result = '##\n##'
         r1 = Rectangle(2, 2)
         self.assertEqual(r1.display(), result)
+
+        resul = "  ##\n  ##"
+        r2 = Rectangle(2, 2, 2, 2)
+        self.assertEqual(r2.display(), resul)
     def test_str(self):
         """ test for ???"""
         r1 = Rectangle(4, 6, 2, 1, 12)
         result = '[Rectangle] (12) 2/1 - 4/6'
         self.assertEqual(r1.__str__(), result)
+    def test_update(self):
+        """test for the update of attributes"""
+        rect = Rectangle(2, 3, 4)
+        rect.update(89, 2, 3, 4, 5)
+        self.assertEqual(rect.__str__(), '[Rectangle] (89) 4/5 - 2/3')
+
+    def test_update2(self):
+        """test for the update of attributes"""
+        rect22 = Rectangle(2, 3, 4)
+        rect22.update(22, 2, 3, 4, 5)
+        self.assertEqual(rect22.__str__(), '[Rectangle] (22) 4/5 - 2/3')
+    def test_update_kwargs(self):
+        """test for the kwargs arguments if `` *arg`` is not empty
+        **kwargs arguments are ignored"""
+
+
+
 
