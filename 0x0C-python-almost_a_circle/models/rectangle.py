@@ -110,13 +110,13 @@ class Rectangle(Base):
                 if count == 1:
                     self.id = arg
                 elif count == 2:
-                    self.__width = arg
+                    self.width = arg
                 elif count == 3:
-                    self.__height == arg
+                    self.height == arg
                 elif count == 4:
-                    self.__x = arg
+                    self.x = arg
                 elif count == 5:
-                    self.__y = arg
+                    self.y = arg
         else:
             if 'id' in kwargs:
                 self.id = kwargs['id']
