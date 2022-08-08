@@ -3,7 +3,7 @@
 inherits from class ``Base``"""
 
 
-from models.base import Base
+from base import Base
 
 
 class Rectangle(Base):
@@ -79,21 +79,25 @@ class Rectangle(Base):
     def area(self):
         """computes the area of the rectangle"""
         return (self.__width * self.__height)
-    
+
     def display(self):
         """displays the rectangle using ``#``"""
         result = ""
+        if self.__y > 0:
+            print('\n' * self.__y, end='')
         for i in range(self.__height):
-            result += '#' * self.__width
+            if self.__x > 0:
+                result += ' ' * self.__x
+                result += '#' * self.__width
             if i < self.__height - 1:
                 result += '\n'
         print(result)
         return(result)
+
     def __str__(self):
         """print the ???"""
-        return ("[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(self.id,
+        return"[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(self.id,
                                                                 self.__x,
                                                                 self.__y,
                                                                 self.__width,
-                                                                self.__height))
-
+                                                                self.__height)
