@@ -78,4 +78,3 @@ class Base:
                 return [cls.create(**i) for i in python_string]
         except (FileNotFoundError, IOError):
             return []
-
