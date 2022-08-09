@@ -66,3 +66,16 @@ class Base:
             dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """that returns a list of instances:"""
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, 'r') as filename:
+                read_json_string = filename.read()
+                python_string = cls.from_json_string(read_json_string)
+                return [cls.create(**i) for i in python_string]
+        except (FileNotFoundError, IOError):
+            return []
+
