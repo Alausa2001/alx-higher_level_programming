@@ -39,9 +39,10 @@ class Base:
         Rectangle or list of Square instances"""
         filename = cls.__name__ + ".json"
         list_dict_instances = [i.to_dictionary() for i in list_objs]
+        empty = []
         if list_objs is None:
             with open(filename, 'w') as filename:
-                filename.write('[]')
-        else:
+                filename.write(cls.to_json_string(empty))
+        elif list_objs is not None:
             with open(filename, 'w') as filename:
                 filename.write(cls.to_json_string(list_dict_instances))
