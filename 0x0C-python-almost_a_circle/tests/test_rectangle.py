@@ -145,6 +145,9 @@ class TestRectangleClass(unittest.TestCase):
         rect_dict = rect.to_dictionary()
         rect2 = Rectangle.create(**rect_dict)
         self.assertEqual(str(rect), str(rect2))
+    
+
+
     def test_save_to_file_method_Rectangle(self):
         """test when list is not empty or None"""
         rect1 = Rectangle(1, 2, 3)
@@ -157,12 +160,21 @@ class TestRectangleClass(unittest.TestCase):
         """if list is empty"""
         Rectangle.save_to_file([])
         with open('Rectangle.json', 'r') as file_rect1:
-            self.assertEqual('[]', file_rect1.read())
+            self.assertTrue('[]' == file_rect1.read())
         """if list is None"""
         Rectangle.save_to_file(None)
         with open('Rectangle.json', 'r') as file_rect1:
             self.assertEqual('[]', file_rect1.read())
 
+
+    def test_load_from_file(self):
+        rect = Rectangle(1, 2, 3)
+        rect2 = Rectangle(2, 3, 4)
+        rect3 = Rectangle(2, 2)
+        test_list = [rect, rect2, rect3]
+        Rectangle.save_to_file(test_list)
+        output = Rectangle.load_from_file()
+        self.assertEqual(len(output), 3)
 
 
 
