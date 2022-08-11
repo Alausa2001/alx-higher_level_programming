@@ -1,6 +1,7 @@
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
+import json
 
 
 class TestRectangleClass(unittest.TestCase):
@@ -143,13 +144,14 @@ class TestRectangleClass(unittest.TestCase):
         rect2 = Rectangle.create(**rect_dict)
         self.assertEqual(str(rect), str(rect2))
     def test_save_to_file_method_Rectangle(self):
+        """test when list is not empty or None"""
         rect1 = Rectangle(1, 2, 3)
         rect2 = Rectangle(1, 2)
         Rectangle.save_to_file([rect1, rect2])
         with open('Rectangle.json', 'r') as file_rect:
+            compare_list = [rect1.to_dictionary(), rect2.to_dictionary()]
             p = file_rect.read()
-            q = p
-        self.assertTrue(q == p)
+            self.assertEqual(json.dumps(compare_list), str(p))
 
     def test_update_kwargs(self):
         """test for the kwargs arguments if `` *arg`` is not empty
