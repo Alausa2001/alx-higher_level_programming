@@ -134,7 +134,9 @@ class TestRectangleClass(unittest.TestCase):
         rect22 = Rectangle(2, 3, 4)
         rect22.update(22, 2, 3, 4, 5)
         self.assertEqual(rect22.__str__(), '[Rectangle] (22) 4/5 - 2/3')
-    
+
+
+
     def test_create_method(self):
         """this method create an instance from another instance
         although the two instances have the same value for their parameter
@@ -151,7 +153,18 @@ class TestRectangleClass(unittest.TestCase):
         with open('Rectangle.json', 'r') as file_rect:
             compare_list = [rect1.to_dictionary(), rect2.to_dictionary()]
             p = file_rect.read()
-            self.assertEqual(json.dumps(compare_list), str(p))
+        self.assertEqual(json.dumps(compare_list), str(p))
+        """if list is empty"""
+        Rectangle.save_to_file([])
+        with open('Rectangle.json', 'r') as file_rect1:
+            self.assertEqual('[]', file_rect1.read())
+        """if list is None"""
+        Rectangle.save_to_file(None)
+        with open('Rectangle.json', 'r') as file_rect1:
+            self.assertEqual('[]', file_rect1.read())
+
+
+
 
     def test_update_kwargs(self):
         """test for the kwargs arguments if `` *arg`` is not empty
