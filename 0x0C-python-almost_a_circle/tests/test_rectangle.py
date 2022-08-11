@@ -26,6 +26,21 @@ class TestRectangleClass(unittest.TestCase):
         '''
         self.assertTrue(str(Rectangle), "<class 'models.rectangle.Rectangle'>")
 
+    def test_rectangle_class(self):
+        rect1 = Rectangle(1, 2)
+        rect2 = Rectangle(1, 2)
+        rect3 = Rectangle(1, 2, 3)
+        rect4 = Rectangle(1, 2, 3, 4)
+
+        self.assertEqual(rect1.width, 1)
+        self.assertEqual(rect1.x, 0)
+        self.assertEqual(rect2.height, 2)
+        self.assertEqual(rect2.x, 0)
+        self.assertEqual(rect3.x, 3)
+        self.assertEqual(rect3.y, 0)
+        self.assertEqual(rect4.id, 7)
+
+
     def test_B_inheritance(self):
         '''
         Tests if Rectangle inherits Base.
