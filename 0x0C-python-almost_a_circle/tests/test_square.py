@@ -22,4 +22,11 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(sqr3.y, 3)
         self.assertEqual(sqr4.id, 4)
         self.assertEqual(sqr2.id, 6)
+    
+
+    def test_wrong_vals(self):
+        """this module test if the correct type or value is given to an argument"""
+
+        with self.assertRaises(TypeError):
+            Square('1')
 
