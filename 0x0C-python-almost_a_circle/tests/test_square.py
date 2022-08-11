@@ -41,4 +41,22 @@ class TestSquare(unittest.TestCase):
             Square(1, -2)
         with self.assertRaises(ValueError):
             Square(1, 2, -3)
+        with self.assertRaises(ValueError):
+            Square(0)
 
+
+    def test_str_Square(self):
+        sqr = Square(1, 2, 3, 4)
+        ans = '[Square] (4) 2/3 - 1'
+        self.assertEqual(sqr.__str__(), ans)
+    
+    def test_to_dictionaary(self):
+        sqr = Square(1, 2, 3, 4)
+        ans = {'size': 1, 'x': 2, 'y': 3, 'id': 4}
+        self.assertEqual(sqr.to_dictionary(), ans)
+
+
+    def test_update(self):
+        sqr = Square(1)
+        sqr.update(2, 3, 4, 9)
+        self.assertEqual(sqr.__str__(), '[Square] (2) 4/9 - 3')
