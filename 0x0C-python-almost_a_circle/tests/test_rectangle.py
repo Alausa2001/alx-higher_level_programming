@@ -121,6 +121,12 @@ class TestRectangleClass(unittest.TestCase):
         rect = Rectangle(2, 3, 4)
         rect.update(89, 2, 3, 4, 5)
         self.assertEqual(rect.__str__(), '[Rectangle] (89) 4/5 - 2/3')
+    def test_to_dictionary_method(self):
+        """test to create a dictionary of the parameter of the rectangle
+        instance"""
+        rect_dict = Rectangle(1, 2, 3, 4, 88)
+        dict_of_ins = {'id': 88, 'width': 1, 'height': 2, 'x': 3, 'y': 4}
+        self.assertEqual(rect_dict.to_dictionary(), dict_of_ins)
 
     def test_update2(self):
         """test for the update of attributes"""
