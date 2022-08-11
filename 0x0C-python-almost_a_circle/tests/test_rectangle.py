@@ -142,6 +142,15 @@ class TestRectangleClass(unittest.TestCase):
         rect_dict = rect.to_dictionary()
         rect2 = Rectangle.create(**rect_dict)
         self.assertEqual(str(rect), str(rect2))
+    def test_save_to_file_method_Rectangle(self):
+        rect1 = Rectangle(1, 2, 3)
+        rect2 = Rectangle(1, 2)
+        Rectangle.save_to_file([rect1, rect2])
+        with open('Rectangle.json', 'r') as file_rect:
+            p = file_rect.read()
+            q = p
+        self.assertTrue(q == p)
+
     def test_update_kwargs(self):
         """test for the kwargs arguments if `` *arg`` is not empty
         **kwargs arguments are ignored"""
