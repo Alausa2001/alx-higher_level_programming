@@ -43,9 +43,9 @@ class Base:
         if list_objs is not None:
             with open(filename, 'w') as filename:
                 filename.write(cls.to_json_string(list_dict_instances))
-        with open(filename, 'w') as filenone:
+        with open(filename, 'w') as filename:
             if list_objs is None:
-                filenone.write('[]')
+                filename.write('[]')
 
     @staticmethod
     def from_json_string(json_string):
