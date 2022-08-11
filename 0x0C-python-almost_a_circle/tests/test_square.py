@@ -29,4 +29,6 @@ class TestSquare(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             Square('1')
+        with self.assertRaises(TypeError):
+            Square(1, '2')
 
