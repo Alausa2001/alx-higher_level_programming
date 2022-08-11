@@ -41,7 +41,7 @@ class Base:
         list_dict_instances = []
 
         if list_objs is not None:
-            list_dict_instances = [i.to_dictionary() for i in list_obj]
+            list_dict_instances = [i.to_dictionary() for i in list_objs]
         with open(filename, 'w') as filename:
             filename.write(cls.to_json_string(list_dict_instances))
 
