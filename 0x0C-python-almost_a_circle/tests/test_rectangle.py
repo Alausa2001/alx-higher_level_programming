@@ -133,6 +133,15 @@ class TestRectangleClass(unittest.TestCase):
         rect22 = Rectangle(2, 3, 4)
         rect22.update(22, 2, 3, 4, 5)
         self.assertEqual(rect22.__str__(), '[Rectangle] (22) 4/5 - 2/3')
+    
+    def test_create_method(self):
+        """this method create an instance from another instance
+        although the two instances have the same value for their parameter
+        but they are not the same"""
+        rect = Rectangle(1, 2, 3, 4)
+        rect_dict = rect.to_dictionary()
+        rect2 = Rectangle.create(**rect_dict)
+        self.assertEqual(str(rect), str(rect2))
     def test_update_kwargs(self):
         """test for the kwargs arguments if `` *arg`` is not empty
         **kwargs arguments are ignored"""
