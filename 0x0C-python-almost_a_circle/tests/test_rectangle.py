@@ -178,10 +178,4 @@ class TestRectangleClass(unittest.TestCase):
 
 
 
-    def test_update_kwargs(self):
-        """test for the kwargs arguments if `` *arg`` is not empty
-        **kwargs arguments are ignored"""
-
-
-
 
