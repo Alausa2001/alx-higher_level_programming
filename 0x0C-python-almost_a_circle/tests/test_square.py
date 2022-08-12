@@ -60,3 +60,30 @@ class TestSquare(unittest.TestCase):
         sqr = Square(1)
         sqr.update(2, 3, 4, 9)
         self.assertEqual(sqr.__str__(), '[Square] (2) 4/9 - 3')
+        sqr2 = Square(2)
+        sqr2.update(id=2, size=3, x=4, y=9)
+        self.assertEqual(sqr2.__str__(), '[Square] (2) 4/9 - 3')
+
+
+    def test_create(self):
+        sqr = Square(1, 2, 3, 4)
+        ans_dict = sqr.to_dictionary()
+        ans = Rectangle.create(**ans_dict)
+        self.assertEqual('[Rectangle] (4) 2/3 - 1/1', str(ans))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
