@@ -7,6 +7,7 @@ and to avoid duplicating the same code (by extension, same bugs)"""
 
 
 import json
+import csv
 
 
 class Base:
@@ -75,4 +76,44 @@ class Base:
                 python_string = cls.from_json_string(read_json_string)
                 return [cls.create(**i) for i in python_string]
         except (FileNotFoundError, IOError):
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save list of insatnce to csv file"""
+        filename = cls.__name__ + ".csv"
+        fieldnames_re = ['id', 'width', 'height', 'x', 'y']
+        fieldname_s = ['id', 'size', 'x', 'y']
+        with open(filename, 'w') as csvfile:
+            if list_objs is None or len(list_objs) == 0:
+                csvfile.write('[]')
+            else:
+                if cls.__name__ == 'Rectangle':
+                    writer = csv.DictWriter(filename, fieldnames=fieldnames_re)
+                else:
+                    writer = csv.DictWriter(filename, fieldnames=fieldnames_s)
+                for obj in list_obj:
+                    writer.Writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """loads object from csv file"""
+        filename = cls.__name__ + '.csv'
+        empty = []
+        try:
+            with open(filename, 'r') as csvfile:
+                content = csv.DictReader(csvfile)
+                for args in content:
+                    if cls.__name__ is "Rectangle":
+                        dictionary = {"id": int(args[0]),
+                                      "width": int(args[1]),
+                                      "height": int(args[2]),
+                                      "x": int(args[3]),
+                                      "y": int(args[4])}
+                    elif cls.__name__ is "Square":
+                        dictionary = {"id": int(args[0]), "size": int(args[1]),
+                                      "x": int(args[2]), "y": int(args[3])}
+                        obj = cls.create(**dictionary)
+                    empty.append(obj)
+        except FileNotFoundError, IOError:
             return []
