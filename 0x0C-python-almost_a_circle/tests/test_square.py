@@ -80,6 +80,32 @@ class TestSquare(unittest.TestCase):
         ans = Square.create(**ans_dict)
         self.assertEqual('[Square] (4) 2/3 - 1', str(ans))
 
+    def test_save_to_file(self):
+        sqr = Square(1, 2, 3)
+        sqr2 = Square(1, 2)
+        Rectangle.save_to_file([sqr, sqr2])
+        with open('Square.json', 'r') as file_sqr:
+            compare_list = [sqr.to_dictionary(), sqr2.to_dictionary()]
+            p = file_sqr.read()
+        #self.assertEqual(json.dumps(compare_list), str(p))
+        """if list is empty"""
+        Square.save_to_file([])
+        with open('Square.json', 'r') as file_sqr:
+            self.assertTrue('[]' == file_sqr.read())
+        """if list is None"""
+        Square.save_to_file(None)
+        with open('Square.json', 'r') as file_sqr:
+            self.assertEqual('[]', file_sqr.read())
+
+
+    def test_load_from_file(self):
+        sqr = Square(1, 2, 3)
+        sqr2 = Square(2, 3, 4)
+        sqr3 = Square(2, 2)
+        test_list = [sqr, sqr2, sqr3]
+        Square.save_to_file(test_list)
+        output = Square.load_from_file()
+        self.assertEqual(len(output), 3)
 
 
 
