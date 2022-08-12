@@ -63,6 +63,15 @@ class TestSquare(unittest.TestCase):
         sqr2 = Square(2)
         sqr2.update(id=2, size=3, x=4, y=9)
         self.assertEqual(sqr2.__str__(), '[Square] (2) 4/9 - 3')
+        
+        sqr = Square(2, 0, 0, 2)
+        self.assertEqual(str(sqr), "[Square] (2) 0/0 - 2")
+        sqr.update(size=10)
+        self.assertEqual(str(sqr), "[Square] (2) 0/0 - 10")
+        sqr.update(size=11, x=2)
+        self.assertEqual(str(sqr), "[Square] (2) 2/0 - 11")
+        sqr.update(y=3, size=4, x=5, id=89)
+        self.assertEqual(str(sqr), "[Square] (89) 5/3 - 4")
 
 
     def test_create(self):
