@@ -77,7 +77,7 @@ class TestSquare(unittest.TestCase):
     def test_create(self):
         sqr = Square(1, 2, 3, 4)
         ans_dict = sqr.to_dictionary()
-        ans = Rectangle.create(**ans_dict)
+        ans = Square.create(**ans_dict)
         self.assertEqual('[Rectangle] (4) 2/3 - 1/1', str(ans))
 
 
