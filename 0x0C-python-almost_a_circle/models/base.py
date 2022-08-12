@@ -115,5 +115,5 @@ class Base:
                                       "x": int(args[2]), "y": int(args[3])}
                         obj = cls.create(**dictionary)
                     empty.append(obj)
-        except FileNotFoundError, IOError:
+        except (FileNotFoundError, IOError):
             return []
