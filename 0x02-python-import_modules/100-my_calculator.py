@@ -3,7 +3,6 @@ if __name__ == "__main__":
     from calculator_1 import add, sub, mul, div
     import sys
 
-
     op_dict = {'+': add, '-': sub, '*': mul, '/': div}
 
     if len(sys.argv) != 4:
