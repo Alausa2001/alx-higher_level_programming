@@ -15,15 +15,15 @@ function selectionSort (array) {
   }
   return (array);
 }
-const arr = process.argv.slice(2);
-const intArray = [];
-for (const i of arr) {
+const argvArr = process.argv.slice(2);
+const argvIntArray = [];
+for (const i of argvArr) {
   const num = parseInt(i);
-  intArray.push(num);
+  argvIntArray.push(num);
 }
 if (process.argv.length <= 3) {
   console.log(parseInt('0'));
 } else {
-  const sortedArray = selectionSort(intArray);
+  const sortedArray = selectionSort(argvIntArray);
   console.log(sortedArray[1]);
 }
