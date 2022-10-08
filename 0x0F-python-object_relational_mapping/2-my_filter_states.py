@@ -27,7 +27,7 @@ if __name__ == "__main__":
         cur.execute("SELECT * FROM states WHERE name='{}'  ORDER BY id ASC"
                     .format(argv[4]))
         rows = cur.fetchall()
-        cur.close()
-        db.close()
         for row in rows:
             print(row)
+    cur.close()
+    db.close()
