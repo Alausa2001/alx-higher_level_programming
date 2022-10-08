@@ -4,4 +4,7 @@
 -- Results must be sorted in ascending order by cities.id
 -- You can use only one SELECT statement
 -- The database name will be passed as an argument of the mysql command
-SELECT cities.id, cities.name, states.name FROM cities JOIN states ORDER BY cities.id ASC;
+SELECT DISTINCT cities.id, cities.name, states.name
+FROM cities 
+INNER JOIN states 
+ON states.id=cities.states_id ORDER BY cities.id ASC;
