@@ -36,7 +36,10 @@ def state_filter():
     session = Session()
 
     # query
-    for first in session.query(State).order_by(State.id).limit(1):
+    first = session.query(State).order_by(State.id).first()
+    if first is None:
+        print('Nothing')
+    else:
         print('{}: {}'.format(first.id, first.name))
     session.close()
 
