@@ -21,18 +21,21 @@ if __name__ == "__main__":
     db = mysql.connect(host='localhost', port=3306, user=argv[1],
                        passwd=argv[2], db=argv[3])
     cur = db.cursor()
+    av = argv[4]
+    if (av.__contains__('TRUNCATE' or 'FROM' or 'SELECT')):
+        av = ''
     cur.execute('SELECT cities.name FROM cities INNER JOIN states\
-                ON states.id=cities.state_id WHERE states.name LIKE %s\
-                ORDER BY cities.id', (argv[4], ))
+                ON states.id=cities.state_id WHERE states.name= %s\
+                ORDER BY cities.id', (av, ))
     rows = cur.fetchall()
     cities = []
     for row in rows:
         for city in row:
             cities.append(city)
-    for city in range(len(cities)):
-        if city < len(cities) - 1:
-            print(cities[city], end=', ')
-    print(cities[city])
-
+    if len(cities) != 0:
+        for city in range(len(cities)):
+            if city < len(cities) - 1:
+                print(cities[city], end=', ')
+        print(cities[city])
     cur.close()
     db.close()
