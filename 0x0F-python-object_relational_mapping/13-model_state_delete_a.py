@@ -39,6 +39,7 @@ def delete():
         if 'a' in state.name:
             session.delete(state)
     session.commit()
+    session.close()
 
 
 if __name__ == '__main__':
