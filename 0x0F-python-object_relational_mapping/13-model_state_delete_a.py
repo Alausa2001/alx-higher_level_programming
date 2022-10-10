@@ -38,7 +38,7 @@ def delete():
     for state in states:
         if 'a' in state.name:
             session.delete(state)
-            session.commit()
+    session.commit()
 
 
 if __name__ == '__main__':
