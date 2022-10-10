@@ -34,10 +34,10 @@ def delete():
     session = Session()
 
     # query
-    states = session.query(State).order_by(State.id).all()
+    search = State.name.like('%a%')
+    states = session.query(State).filter(search).order_by(State.id).all()
     for state in states:
-        if 'a' in state.name:
-            session.delete(state)
+        session.delete(state)
     session.commit()
     session.close()
 
