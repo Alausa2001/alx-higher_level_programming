@@ -12,8 +12,7 @@ Your code should not be executed when imported"
 
 
 def update():
-    """ script that prints the first State object
-    from the database hbtn_0e_6_usa"""
+    """ updated a column"""
 
     from sqlalchemy import create_engine
     from model_state import Base, State
