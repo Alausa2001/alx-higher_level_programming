@@ -16,8 +16,7 @@ Your code should not be executed when imported
 
 
 def my_get():
-    """ script that prints the first State object
-    from the database hbtn_0e_6_usa"""
+    """ searches for a state"""
 
     from sqlalchemy import create_engine
     from model_state import Base, State
