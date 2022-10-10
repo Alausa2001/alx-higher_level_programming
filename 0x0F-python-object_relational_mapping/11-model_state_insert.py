@@ -13,8 +13,7 @@ Your code should not be executed when imported
 
 
 def add():
-    """ script that prints the first State object
-    from the database hbtn_0e_6_usa"""
+    """ adds a new state to the table"""
 
     from sqlalchemy import create_engine
     from model_state import Base, State
