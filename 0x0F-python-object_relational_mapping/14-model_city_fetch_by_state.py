@@ -12,7 +12,7 @@ def city_fetch_by_state():
     from sys import argv
 
     # create a connection
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
+    engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}"
                            .format(argv[1], argv[2], argv[3]),
                            pool_pre_ping=True)
     # create all tables
