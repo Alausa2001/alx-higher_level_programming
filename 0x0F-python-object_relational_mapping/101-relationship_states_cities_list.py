@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""creates the State “California” with the City
-“San Francisco” from the database hbtn_0e_100_usa"""
+"""one to many relationship"""
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -10,8 +9,7 @@ from relationship_city import City
 
 
 def relationship():
-    """creates the State “California” with the City
-    “San Francisco” from the database hbtn_0e_100_usa"""
+    """one to many relationship"""
 
     # create connection
     engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}".format(
