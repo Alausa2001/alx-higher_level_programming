@@ -5,10 +5,9 @@ displays the body of the response."""
 
 if __name__ == "__main__":
     import requests
-    from requests.exceptions import HTTPError
     from sys import argv
-    try:
-        response = requests.get(argv[1])
+    response = requests.get(argv[1])
+    if response.status_code >= 400:
+        print("Error code: {}".format(response.status_code))
+    else:
         print(response.text)
-    except HTTPError as error:
-        print(error.status_code)
