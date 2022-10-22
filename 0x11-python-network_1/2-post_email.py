@@ -14,5 +14,5 @@ if __name__ == "__main__":
     data = data.encode('ascii')
     req = Request(argv[1], data)
     with urlopen(req) as response:
-        respon = response.read()
-        print(respon)
+        page = response.read()
+        print(page.decode('utf-8'))
