@@ -7,10 +7,17 @@ if __name__ == "__main__":
     from sys import argv
     import requests
 
-    que_str = 'https://api.github.com/repos/{}/{}/commits?per_page=10'\
+    que_str = 'https://api.github.com/repos/{}/{}/commits'\
               .format(argv[1], argv[2])
     response = requests.get(que_str)
-    for a in response.json():
-        sha = a['sha']
+    for a in response.json()[:10]:
+        
+        sha = a.get('sha')
         author = a.get('commit').get('author').get('name')
         print('{}: {}'.format(sha, author))
+        
+        """
+        sha = a['sha']
+        author = a['commit']['author']['name']
+        print('{}: {}'.format(sha, author))
+        """
