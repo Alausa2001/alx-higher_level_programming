@@ -8,7 +8,7 @@ if __name__ == "__main__":
     import requests
 
     url = 'https://api.github.com/repos/{}/{}/commits'\
-              .format(argv[2], argv[1])
+          .format(argv[2], argv[1])
     response = requests.get(url)
     commit_list = response.json()
     for commit in commit_list[:10]:
