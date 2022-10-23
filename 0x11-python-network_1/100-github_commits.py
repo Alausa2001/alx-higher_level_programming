@@ -12,5 +12,5 @@ if __name__ == "__main__":
     response = requests.get(que_str)
     for a in response.json():
         sha = a['sha']
-        author = a['commit']['author']['name']
+        author = a.get('commit').get('author').get('name')
         print('{}: {}'.format(sha, author))
