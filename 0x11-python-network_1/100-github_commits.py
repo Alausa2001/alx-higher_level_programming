@@ -1,24 +1,17 @@
 #!/usr/bin/python3
-"""This script list 10 commits (from the most recent to oldest)
-of the github repository “rails” by the user “rails”
-"""
-
-import requests
-import sys
+"""list the 10 most recent commits in a repository
+first arg : owner of repo
+second arg: name of repo"""
 
 if __name__ == "__main__":
-    repository = sys.argv[1]
-    user = sys.argv[2]
-    url = 'https://api.github.com/repos/{}/{}/commits'.format(user, repository)
-    r = requests.get(url)
-    res = r.json()
-    result_length = len(res)
+    from sys import argv
+    import requests
 
-    if result_length < 10:
-        result_range = result_length
-    else:
-        result_range = 10
-
-    for i in range(0, result_range):
-        print("{}: {}".format(res[i].get('sha'),
-              res[i].get('commit').get('author').get('name')))
+    que_str = 'https://api.github.com/repos/{}/{}/commits'\
+              .format(argv[1], argv[2])
+    response = requests.get(que_str)
+    commit_list = response.json()
+    for commit in commit_list[:10]:
+        sha = commit.get('sha')
+        author = commit.get('commit').get('author').get('name')
+        print('{}: {}'.format(sha, author))
