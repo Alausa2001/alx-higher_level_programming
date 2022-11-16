@@ -2,7 +2,7 @@
 const req = require('request');
 req(process.argv[2], function (error, response, body) {
   if (error) {
-    console.log(error);
+    console.error(error);
   } else {
     const characters = [];
     const jsFormat = JSON.parse(body);
