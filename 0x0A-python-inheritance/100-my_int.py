@@ -2,7 +2,7 @@
 """class that overides python's builtin class int"""
 
 
-class myInt(int):
+class MyInt(int):
     """inherits from int"""
 
     def __eq__(self, value):
