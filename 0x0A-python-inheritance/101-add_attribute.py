@@ -11,5 +11,5 @@ def add_attribute(cls, key, value):
     if it is impossible to add the attribute, a typerror is raised
     """
     if not hasattr(cls, '__dict__'):
-        raise TypeError("can't add attribute")
-    setattr(cls, key, val)
+        raise TypeError("can't add new attribute")
+    setattr(cls, key, value)
